@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bresdfgfddjv4"]
+
+[ext_resource type="PackedScene" uid="uid://bfi3elw6vrv3i" path="res://scene/4/construction.tscn" id="1_slsfm"]
+[ext_resource type="Script" path="res://scene/4/legion.gd" id="2_blpqr"]
+
+[node name="Legion" instance=ExtResource("1_slsfm")]
+script = ExtResource("2_blpqr")

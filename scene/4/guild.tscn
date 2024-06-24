@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsk8735r0pjrn"]
+
+[ext_resource type="Script" path="res://scene/4/guild.gd" id="1_1bsdo"]
+[ext_resource type="PackedScene" uid="uid://b2hmlsld12jrm" path="res://scene/4/construction.tscn" id="1_752t7"]
+
+[node name="Guild" instance=ExtResource("1_752t7")]
+script = ExtResource("1_1bsdo")

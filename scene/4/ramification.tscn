@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ng5s2px37q4t"]
+
+[ext_resource type="PackedScene" uid="uid://bfi3elw6vrv3i" path="res://scene/4/construction.tscn" id="1_wwn53"]
+[ext_resource type="Script" path="res://scene/4/ramification.gd" id="2_g50t8"]
+
+[node name="Ramification" instance=ExtResource("1_wwn53")]
+script = ExtResource("2_g50t8")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hmlsld12jrm"]
+
+[ext_resource type="Script" path="res://scene/4/construction.gd" id="1_orbjj"]
+
+[node name="Construction" type="Polygon2D"]
+color = Color(0.529511, 0.573215, 0.582577, 1)
+script = ExtResource("1_orbjj")
