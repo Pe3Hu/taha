@@ -46,6 +46,8 @@ func init_basic_setting(input_: Dictionary) -> void:
 	
 	if !input_.has("value"):
 		value.visible = false
+	
+	size = custom_minimum_size
 #endregion
 
 

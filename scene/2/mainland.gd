@@ -27,8 +27,8 @@ func set_attributes(input_: Dictionary) -> void:
 func init_basic_setting() -> void:
 	var l = Global.num.cell.l
 	planet.custom_minimum_size = Vector2(Global.num.mainland.col, Global.num.mainland.row) * l
-	$Constructions.position = Vector2.ONE * 8 / 16 * l
-	minions.position = Vector2.ONE * 8 / 16 * l
+	#$Constructions.position = Vector2.ONE * 8 / 16 * l
+	#minions.position = Vector2.ONE * 8 / 16 * l
 	
 	layer.floor = 0
 	source = 0
@@ -76,11 +76,15 @@ func init_roads() -> void:
 				if direction.x == 0:
 					directions.pop_back()
 					
-				var grid = Vector2i(construction.grid )
+				var grid = Vector2i(construction.grid)
 				var end = Vector2i(output.grid)
 				
 				while grid + directions.front() != end:
 					grid += directions.front()
+					
+					if !grids.has(grid):
+						grids[grid] = null 
+					
 					map.set_cell(layer.floor, grid, source, atlas_coord)
 					
 					if directions.size() > 1:
@@ -101,16 +105,22 @@ func init_outputs() -> void:
 					
 					var childs = construction.scene.get(output.type+"s")
 					childs.append(output.scene)
+				
+				construction.init_weights()
 
 
 func get_construction_based_on_index(index_: int) -> Variant:
-	var construction = null
 	var description = Global.dict.construction.index[index_]
-	construction = grids[description.grid]
-	return construction
+	
+	for construction in constructions[description.type]:
+		if description.grid == construction.grid:
+			return construction
+	
+	return null
 #endregion
 
 
 func init_minions() -> void:
+	#for guild in guilds.get_children():
 	var guild = guilds.get_child(0)
-	guild.spawn_minion()
+	guild.cooldown.start()

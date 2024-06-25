@@ -10,7 +10,10 @@ class Construction:
 	var inputs = []
 	var outputs = []
 	var scene = null
-	
+	var weights = {}
+	var minion = null
+
+
 	func _init(input_: Dictionary) -> void:
 		mainland = input_.mainland
 		index = input_.index
@@ -23,12 +26,12 @@ class Construction:
 		grid = Vector2i(description.grid)
 		type = description.type
 		subtype = description.subtype
+		mainland.grids[grid] = null
 		
 		if !mainland.constructions.has(type):
 			mainland.constructions[type] = []
 		
 		mainland.constructions[type].append(self)
-		mainland.grids[grid] = self
 		init_scene()
 
 
@@ -43,13 +46,18 @@ class Construction:
 
 	func get_local_position() -> Vector2:
 		var result = mainland.map.map_to_local(grid)
-		result -= Vector2.ONE * Global.num.cell.l 
-		#result.y -= Global.num.cell.l
+		#result -= Vector2.ONE * Global.num.cell.l * 0.5 
+		#result.y -= Global.num.cell.l * 0.5
 		return result
 
 
 	func get_global_position() -> Vector2:
 		return mainland.to_global(mainland.map.map_to_local(grid))
+
+
+	func init_weights() -> void:
+		for output in outputs:
+			weights[output] = 1
 
 
 class Conqueror:

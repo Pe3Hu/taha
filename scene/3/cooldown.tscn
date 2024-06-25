@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://0lupaa8b71rj"]
+
+[ext_resource type="Script" path="res://scene/3/cooldown.gd" id="1_cqjf7"]
+[ext_resource type="Texture2D" uid="uid://qb8hkcjmeh23" path="res://asset/png/bar/2.png" id="2_qyi34"]
+[ext_resource type="Texture2D" uid="uid://hxl4s0tpxmmx" path="res://asset/png/bar/1.png" id="2_xa14v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
+
+[node name="Cooldown" type="MarginContainer"]
+custom_minimum_size = Vector2(5, 5)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -950.0
+offset_top = -425.0
+offset_right = -918.0
+offset_bottom = -393.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_cqjf7")
+
+[node name="BG" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+texture_under = ExtResource("2_xa14v")
+texture_progress = ExtResource("2_qyi34")

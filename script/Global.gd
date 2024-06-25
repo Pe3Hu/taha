@@ -21,9 +21,8 @@ func _ready() -> void:
 
 
 func init_arr() -> void:
-	arr.ennobled = ["settlement", "road"]
-	arr.terrain = ["forest", "mountain", "plain"]
 	arr.construction = ["legion", "guild", "ramification", "battlefield"]
+	arr.rarity = ["common", "uncommon", "rare"]
 
 
 func init_num() -> void:
@@ -188,6 +187,9 @@ func init_vec():
 	vec.size = {}
 	vec.size.sixteen = Vector2(16, 16)
 	vec.size.token = Vector2(vec.size.sixteen)
+	vec.size.cell = Vector2.ONE * num.cell.l
+	vec.size.rarity = Vector2(vec.size.cell)
+	vec.size.cooldown = Vector2(vec.size.cell)
 	vec.size.construction = Vector2.ONE * num.construction.l
 	
 	init_window_size()
@@ -205,9 +207,9 @@ func init_color():
 	
 	
 	color.guild = {}
-	color.guild["horseman"] = Color.from_hsv(0 / h, 0.6, 0.7)
-	color.guild["pikeman"] = Color.from_hsv(120 / h, 0.6, 0.7)
-	color.guild["swordsman"] = Color.from_hsv(210 / h, 0.6, 0.7)
+	color.guild["horseman"] = Color.from_hsv(210 / h, 0.6, 0.7)
+	color.guild["pikeman"] = Color.from_hsv(270 / h, 0.6, 0.7)
+	color.guild["swordsman"] = Color.from_hsv(0 / h, 0.6, 0.7)
 	
 	color.legion = {}
 	color.legion["any"] = Color.from_hsv(0 / h, 0.0, 0.7)

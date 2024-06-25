@@ -3,8 +3,9 @@ extends MarginContainer
 
 #region vars
 @onready var bg = $BG
-@onready var number = $Number
-@onready var text = $Text
+@onready var number = $HBox/Number
+@onready var text = $HBox/Text
+@onready var percentage = $HBox/Percentage
 @onready var textureRect = $TextureRect
 
 var type = null

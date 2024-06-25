@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bresdfgfddjv4"]
+[gd_scene load_steps=5 format=3 uid="uid://ja364hy3u0sq"]
 
-[ext_resource type="PackedScene" uid="uid://bfi3elw6vrv3i" path="res://scene/4/construction.tscn" id="1_slsfm"]
+[ext_resource type="PackedScene" uid="uid://b2hmlsld12jrm" path="res://scene/4/construction.tscn" id="1_slsfm"]
 [ext_resource type="Script" path="res://scene/4/legion.gd" id="2_blpqr"]
+[ext_resource type="PackedScene" uid="uid://d2d3w46bsu5tg" path="res://scene/0/token.tscn" id="3_m7bg0"]
+[ext_resource type="PackedScene" uid="uid://0lupaa8b71rj" path="res://scene/3/cooldown.tscn" id="4_ftlt1"]
 
 [node name="Legion" instance=ExtResource("1_slsfm")]
 script = ExtResource("2_blpqr")
+
+[node name="Common" parent="." index="0" instance=ExtResource("3_m7bg0")]
+
+[node name="Uncommon" parent="." index="1" instance=ExtResource("3_m7bg0")]
+
+[node name="Rare" parent="." index="2" instance=ExtResource("3_m7bg0")]
+
+[node name="Cooldown" parent="." index="3" instance=ExtResource("4_ftlt1")]
